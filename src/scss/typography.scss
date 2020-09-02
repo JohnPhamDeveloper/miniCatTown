@@ -1,0 +1,31 @@
+@import './variables.scss';
+
+$p-font-size-mobile: 0.9rem;
+$p-font-size-small: 1rem;
+$p-font-size-medium: 1.2rem;
+$p-font-size-large: 1.3rem;
+
+$h1-font-size-mobile: 1.8rem;
+$h1-font-size-small: 1.9rem;
+$h1-font-size-medium: 2rem;
+$h1-font-size-large: 3rem;
+
+@media (min-width: $breakpoint-small) {
+  p {
+    font-size: $p-font-size-small;
+  }
+
+  h1 {
+    font-size: $h1-font-size-small;
+  }
+}
+
+@media (min-width: $breakpoint-medium) {
+  p {
+    font-size: $p-font-size-medium;
+  }
+
+  h1 {
+    font-size: $h1-font-size-medium;
+  }
+}
