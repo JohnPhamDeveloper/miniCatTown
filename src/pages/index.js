@@ -11,15 +11,49 @@ import './index.scss'
 // import Layout from '../components/layout'
 // import ArticlePreview from '../components/article-preview'
 import Navbar from '../components/Navbar'
+import CTASection from '../components/CTASection'
+
+const imageHeight = '500px'
+
+const imageOption = {
+  position: 'absolute',
+  width: '100%',
+  height: imageHeight,
+  zIndex: -5,
+}
+
+const imageWrapperStyle = {
+  width: '100%',
+  height: imageHeight,
+  overflow: 'hidden',
+  position: 'relative',
+}
+
+// In CSS should have 3 categories
+// Small which will be 500px
+// Medium will be 700px?
+// Attach a CSS class called image-small
 
 const RootIndex = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
+  const headline = data.allContentfulPageHeadline.edges[0].node.quote
+  const section = data.allContentfulPageSection.edges
   const posts = data.allContentfulBlogPost.edges
   const [author] = data.allContentfulPerson.edges
+
+  console.log(section)
 
   return (
     <div>
       <Navbar />
+      <h1>{headline}</h1>
+      <div className="call-to-action-block" style={imageWrapperStyle}>
+        <CTASection
+          title={section[0].node.title}
+          description={section[0].node.description.description}
+          fluidImg={section[0].node.backgroundImage.fluid}
+        />
+      </div>
     </div>
   )
 }
@@ -83,6 +117,28 @@ export const pageQuery = graphql`
     site {
       siteMetadata {
         title
+      }
+    }
+    allContentfulPageHeadline {
+      edges {
+        node {
+          quote
+        }
+      }
+    }
+    allContentfulPageSection {
+      edges {
+        node {
+          backgroundImage {
+            fluid(maxWidth: 3000) {
+              ...GatsbyContentfulFluid
+            }
+          }
+          title
+          description {
+            description
+          }
+        }
       }
     }
     allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {

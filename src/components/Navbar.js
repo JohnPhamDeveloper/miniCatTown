@@ -1,14 +1,16 @@
 import React from 'react'
 import { Link } from 'gatsby'
+import './Navbar.scss'
 
 const Navbar = () => {
   return (
-    <div className="navbar">
-      <Link to="/">Mini Cat Town</Link>
+    <nav className="navbar">
+      <Link className="navbar__title" to="/">
+        Mini Cat Town
+      </Link>
       {/* Mini cat town text */}
-      <a></a>
       {/* Navlinks */}
-    </div>
+    </nav>
   )
 }
 
