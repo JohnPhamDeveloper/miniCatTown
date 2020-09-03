@@ -1,6 +1,8 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import PropTypes from 'prop-types'
 import '../scss/reset.scss'
+import '../scss/base.scss'
 import '../scss/typography.scss'
 import './index.scss'
 // import get from 'lodash/get'
@@ -8,6 +10,7 @@ import './index.scss'
 // import Hero from '../components/hero'
 // import Layout from '../components/layout'
 // import ArticlePreview from '../components/article-preview'
+import Navbar from '../components/Navbar'
 
 const RootIndex = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -16,15 +19,29 @@ const RootIndex = ({ data }) => {
 
   return (
     <div>
-      <h1>{siteTitle}</h1>
-      {posts.map(({ node }) => (
-        <li key={node.slug}>
-          <h2>{node.slug}</h2>
-          <p>I'm a paragraph</p>
-        </li>
-      ))}
+      <Navbar />
     </div>
   )
+}
+
+RootIndex.propTypes = {
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+      }),
+    }),
+  }),
+}
+
+RootIndex.defaultProps = {
+  data: PropTypes.shape({
+    site: PropTypes.shape({
+      siteMetadata: PropTypes.shape({
+        title: 'Missing Title',
+      }),
+    }),
+  }),
 }
 
 // class RootIndex extends React.Component {
