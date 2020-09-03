@@ -34,7 +34,7 @@ const CTASection = ({
 
         {/* Optional primary call to action */}
         {ctaPrimary.text !== 'UNDEFINED' ? (
-          <a className="button" href={ctaPrimary.link}>
+          <a className="button button--important" href={ctaPrimary.link}>
             {ctaPrimary.text}
           </a>
         ) : null}
