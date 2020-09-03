@@ -14,6 +14,7 @@
     "gatsby-source-contentful": "^2.2.9",
     "gatsby-transformer-remark": "^2.7.3",
     "gatsby-transformer-sharp": "^2.4.6",
+    "hamburgers": "^1.1.3",
     "lodash": "^4.17.15",
     "node-sass": "^4.14.1",
     "prop-types": "^15.7.2",

@@ -8,6 +8,11 @@ $h1-font-size-small: 1.9rem;
 $h1-font-size-medium: 2rem;
 $h1-font-size-large: 3rem;
 
+body {
+  -webkit-font-smoothing: antialiased;
+  font-family: 'Nunito', sans-serif;
+}
+
 @media (min-width: $breakpoint-small) {
   p {
     font-size: $p-font-size-small;
