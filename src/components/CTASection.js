@@ -27,10 +27,10 @@ const CTASection = ({
 
       <div className="call-to-action__content">
         {/* Section title */}
-        <h1>{title}</h1>
+        <h2 className="call-to-action__title">{title}</h2>
 
         {/* Section description */}
-        <p>{description}</p>
+        <p className="call-to-action__description">{description}</p>
 
         {/* Optional primary call to action */}
         {ctaPrimary.text !== 'UNDEFINED' ? (
