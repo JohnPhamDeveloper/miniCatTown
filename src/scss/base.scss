@@ -5,15 +5,3 @@ a:active {
   text-decoration: none;
   color: inherit;
 }
-
-.darken-image::after {
-  content: '';
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-  background: #253136;
-  opacity: 40%;
-  z-index: 2000;
-  position: absolute;
-}

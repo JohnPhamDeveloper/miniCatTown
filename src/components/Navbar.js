@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import './Navbar.scss'
+// import './Navbar.scss'
 
 const Navbar = () => {
   return (
