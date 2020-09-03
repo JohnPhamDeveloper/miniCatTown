@@ -37,11 +37,19 @@ const imageWrapperStyle = {
 const RootIndex = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
   const headline = data.allContentfulPageHeadline.edges[0].node.quote
-  const section = data.allContentfulPageSection.edges
+  const section = data.allContentfulPageSection.edges[0].node
   const posts = data.allContentfulBlogPost.edges
   const [author] = data.allContentfulPerson.edges
 
-  console.log(section)
+  const sectionCTAPrimary = {
+    text: section.ctaPrimaryButtonText,
+    link: section.ctaPrimaryButtonLink,
+  }
+
+  const sectionCTASecondary = {
+    text: section.ctaSecondaryButtonText,
+    link: section.ctaSecondaryButtonLink,
+  }
 
   return (
     <div>
@@ -49,9 +57,11 @@ const RootIndex = ({ data }) => {
       <h1>{headline}</h1>
       <div className="call-to-action-block" style={imageWrapperStyle}>
         <CTASection
-          title={section[0].node.title}
-          description={section[0].node.description.description}
-          fluidImg={section[0].node.backgroundImage.fluid}
+          title={section.title}
+          description={section.description.description}
+          fluidImg={section.backgroundImage.fluid}
+          ctaPrimary={sectionCTAPrimary}
+          ctaSecondary={sectionCTASecondary}
         />
       </div>
     </div>
@@ -138,6 +148,10 @@ export const pageQuery = graphql`
           description {
             description
           }
+          ctaPrimaryButtonText
+          ctaPrimaryButtonLink
+          ctaSecondaryButtonLink
+          ctaSecondaryButtonText
         }
       }
     }

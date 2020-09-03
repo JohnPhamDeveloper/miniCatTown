@@ -32,10 +32,26 @@ const CTASection = ({
 }) => {
   return (
     <div className="call-to-action-block" style={imageWrapperStyle}>
+      {/* Section background image */}
       <Img className="darken-image" style={imageOption} fluid={fluidImg} />
+
+      {/* Section title */}
       <h1>{title}</h1>
+
+      {/* Section description */}
       <p>{description}</p>
-      <button></button>
+
+      {/* Optional primary call to action */}
+      {ctaPrimary.text !== 'UNDEFINED' ? (
+        <a href={ctaPrimary.link}>{ctaPrimary.text}</a>
+      ) : null}
+
+      {/* optional secondary call to action */}
+      {ctaSecondary.text !== 'UNDEFINED' ? (
+        <a href={ctaSecondary.link} target="_blank">
+          {ctaSecondary.text}
+        </a>
+      ) : null}
     </div>
   )
 }
@@ -46,6 +62,25 @@ CTASection.propTypes = {
   fluidImg: PropTypes.shape({
     src: PropTypes.string,
   }).isRequired,
+  ctaPrimary: PropTypes.shape({
+    text: PropTypes.string,
+    link: PropTypes.string,
+  }),
+  ctaSecondary: PropTypes.shape({
+    text: PropTypes.string,
+    link: PropTypes.string,
+  }),
+}
+
+CTASection.defaultProps = {
+  ctaPrimary: PropTypes.shape({
+    text: 'UNDEFINED',
+    link: 'UNDEFINED',
+  }),
+  ctaSecondary: PropTypes.shape({
+    text: 'UNDEFINED',
+    link: 'UNDEFINED',
+  }),
 }
 
 export default CTASection
