@@ -1,12 +1,6 @@
 import React from 'react'
-// import './CTASection.scss'
 import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
-
-// In CSS should have 3 categories
-// Small which will be 500px
-// Medium will be 700px?
-// Attach a CSS class called image-small
 
 const CTASection = ({
   fluidImg,
@@ -15,6 +9,8 @@ const CTASection = ({
   ctaPrimary,
   ctaSecondary,
 }) => {
+  console.log(ctaSecondary.text)
+  console.log(typeof ctaSecondary)
   return (
     <div className="call-to-action">
       {/* Section background image */}
@@ -72,14 +68,14 @@ CTASection.propTypes = {
 }
 
 CTASection.defaultProps = {
-  ctaPrimary: PropTypes.shape({
+  ctaPrimary: {
     text: 'UNDEFINED',
     link: 'UNDEFINED',
-  }),
-  ctaSecondary: PropTypes.shape({
+  },
+  ctaSecondary: {
     text: 'UNDEFINED',
     link: 'UNDEFINED',
-  }),
+  },
 }
 
 export default CTASection

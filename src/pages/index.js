@@ -42,6 +42,12 @@ const RootIndex = ({ data }) => {
         ctaPrimary={sectionCTAPrimary}
         ctaSecondary={sectionCTASecondary}
       />
+      <CTASection
+        title={section.title}
+        description={section.description.description}
+        fluidImg={section.backgroundImage.fluid}
+        ctaPrimary={sectionCTAPrimary}
+      />
     </div>
   )
 }
