@@ -1,0 +1,53 @@
+a.button {
+  padding: 13px 24px;
+  background-color: transparent;
+  border-radius: 25px;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  color: white;
+  font-weight: 600;
+  //   text-transform: uppercase;
+  cursor: pointer;
+  border: 2px solid white;
+  width: 50%;
+  transition: width 0.3s, background-color 0.3s, border-color 0.3s,
+    box-shadow 0.3s, color 0.1s, -webkit-box-shadow 0.3s, text-shadow 0.1s;
+
+  &:hover {
+    color: $primary-color;
+    background-color: white;
+    text-shadow: 0 0px 0px #4d475100, 0 0 0px #4d475100, 0 0 0px #4d475100;
+    width: 55%;
+  }
+
+  &--important {
+    background-color: $red;
+    text-shadow: none;
+    color: white;
+    border: none;
+    width: 70%;
+
+    &:hover {
+      width: 75%;
+      color: white;
+      background-color: $red-dark;
+    }
+  }
+
+  &--primary {
+    background-color: $primary-color;
+    color: white;
+    width: 70%;
+
+    &:hover {
+      color: white;
+      background-color: $primary-color-light;
+      width: 75%;
+    }
+  }
+
+  &--shadow {
+    text-shadow: 0 1px 5px #4d4751, 0 0 2px #4d4751, 0 0 1px #4d4751;
+  }
+}

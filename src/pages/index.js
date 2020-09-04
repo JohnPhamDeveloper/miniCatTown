@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import { Link } from 'gatsby'
 import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 import '../scss/main.scss'
@@ -40,8 +41,11 @@ const RootIndex = ({ data }) => {
         <Img className="site-logo" fluid={siteLogo} />
       </div>
 
-      <div className="headline-container">
+      <div className="headline">
         <h1 className="headline-text">{headline}</h1>
+        <Link className="headline-button button button--primary button--shadow">
+          See Our Cats
+        </Link>
       </div>
 
       <CTASection
