@@ -36,8 +36,14 @@ const RootIndex = ({ data }) => {
   return (
     <div>
       <Header />
-      <h1 className="headline">{headline}</h1>
-      <Img fluid={siteLogo} />
+      <div className="logo-merger">
+        <Img className="site-logo" fluid={siteLogo} />
+      </div>
+
+      <div className="headline-container">
+        <h1 className="headline-text">{headline}</h1>
+      </div>
+
       <CTASection
         title={section.title}
         description={section.description.description}
