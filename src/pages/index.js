@@ -1,5 +1,6 @@
 import React from 'react'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
 import '../scss/main.scss'
 // import '../scss/reset.scss'
@@ -11,12 +12,13 @@ import '../scss/main.scss'
 // import Hero from '../components/hero'
 // import Layout from '../components/layout'
 // import ArticlePreview from '../components/article-preview'
-import Navbar from '../components/Navbar'
+import Header from '../components/Header'
 import CTASection from '../components/CTASection'
 
 const RootIndex = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
   const headline = data.allContentfulPageHeadline.edges[0].node.quote
+  const siteLogo = data.allContentfulWebsiteLogo.edges[0].node.logoImage.fluid
   const section = data.allContentfulPageSection.edges[0].node
   const posts = data.allContentfulBlogPost.edges
   const [author] = data.allContentfulPerson.edges
@@ -33,8 +35,9 @@ const RootIndex = ({ data }) => {
 
   return (
     <div>
-      <Navbar />
-      <h1>{headline}</h1>
+      <Header />
+      <h1 className="headline">{headline}</h1>
+      <Img fluid={siteLogo} />
       <CTASection
         title={section.title}
         description={section.description.description}
@@ -117,6 +120,17 @@ export const pageQuery = graphql`
       edges {
         node {
           quote
+        }
+      }
+    }
+    allContentfulWebsiteLogo {
+      edges {
+        node {
+          logoImage {
+            fluid(maxWidth: 800) {
+              ...GatsbyContentfulFluid
+            }
+          }
         }
       }
     }
