@@ -21,8 +21,11 @@ const RootIndex = ({ data }) => {
   const headline = data.allContentfulPageHeadline.edges[0].node.quote
   const siteLogo = data.allContentfulWebsiteLogo.edges[0].node.logoImage.fluid
   const section = data.allContentfulPageSection.edges[0].node
-  const posts = data.allContentfulBlogPost.edges
-  const [author] = data.allContentfulPerson.edges
+
+  console.log(section)
+
+  // const posts = data.allContentfulBlogPost.edges
+  // const [author] = data.allContentfulPerson.edges
 
   const sectionCTAPrimary = {
     text: section.ctaPrimaryButtonText,
@@ -35,14 +38,16 @@ const RootIndex = ({ data }) => {
   }
 
   return (
-    <div>
+    <div className="main">
       <Header />
+      {/* Logo */}
       <div className="logo-merger">
         <Img className="site-logo" fluid={siteLogo} />
       </div>
-
+      {/* Headline */}
       <div className="headline">
         <div className="headline-window">
+          {/* Window */}
           <svg
             id="Capa_1"
             viewBox="0 0 512 512"
@@ -53,7 +58,9 @@ const RootIndex = ({ data }) => {
               <path d="m0 0v512h512v-512zm482 482h-452v-452h452z" />
             </g>
           </svg>
+          {/* Gap */}
           <div className="gap" />
+          {/* Window */}
           <svg
             id="Capa_1"
             viewBox="0 0 512 512"
@@ -65,29 +72,50 @@ const RootIndex = ({ data }) => {
             </g>
           </svg>
         </div>
+        {/* Headline Text */}
         <h1 className="headline-text">{headline}</h1>
 
+        {/* Call to action */}
         <Link
           to="/available-kittens"
           className="headline-button button button--primary button--shadow"
         >
-          See Our Cats
+          See Our Kittens
         </Link>
       </div>
-
       <CTASection
         title={section.title}
         description={section.description.description}
         fluidImg={section.backgroundImage.fluid}
         ctaPrimary={sectionCTAPrimary}
         ctaSecondary={sectionCTASecondary}
+        icons={section.icons}
       />
+      <div
+        style={{
+          height: '180px',
+          width: '100%',
+          background: 'rgb(255, 242, 221)',
+        }}
+      ></div>
       <CTASection
         title={section.title}
         description={section.description.description}
         fluidImg={section.backgroundImage.fluid}
         ctaPrimary={sectionCTAPrimary}
+        icons={section.icons}
       />
+      {/* FOOTER */}
+      <footer>
+        Icons made by
+        <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
+          Freepik
+        </a>
+        from
+        <a href="https://www.flaticon.com/" title="Flaticon">
+          www.flaticon.com
+        </a>
+      </footer>
     </div>
   )
 }
@@ -187,51 +215,56 @@ export const pageQuery = graphql`
           ctaPrimaryButtonLink
           ctaSecondaryButtonLink
           ctaSecondaryButtonText
-        }
-      }
-    }
-    allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
-      edges {
-        node {
-          title
-          slug
-          publishDate(formatString: "MMMM Do, YYYY")
-          tags
-          heroImage {
-            fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-          description {
-            childMarkdownRemark {
-              html
+          icons {
+            fluid(maxWidth: 700) {
+              ...GatsbyContentfulFluid
             }
           }
         }
       }
     }
-    allContentfulPerson(
-      filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
-    ) {
-      edges {
-        node {
-          name
-          shortBio {
-            shortBio
-          }
-          title
-          heroImage: image {
-            fluid(
-              maxWidth: 1180
-              maxHeight: 480
-              resizingBehavior: PAD
-              background: "rgb:000000"
-            ) {
-              ...GatsbyContentfulFluid_tracedSVG
-            }
-          }
-        }
-      }
-    }
+    # allContentfulBlogPost(sort: { fields: [publishDate], order: DESC }) {
+    #   edges {
+    #     node {
+    #       title
+    #       slug
+    #       publishDate(formatString: "MMMM Do, YYYY")
+    #       tags
+    #       heroImage {
+    #         fluid(maxWidth: 350, maxHeight: 196, resizingBehavior: SCALE) {
+    #           ...GatsbyContentfulFluid_tracedSVG
+    #         }
+    #       }
+    #       description {
+    #         childMarkdownRemark {
+    #           html
+    #         }
+    #       }
+    #     }
+    #   }
+    # }
+    # allContentfulPerson(
+    #   filter: { contentful_id: { eq: "15jwOBqpxqSAOy2eOO4S0m" } }
+    # ) {
+    #   edges {
+    #     node {
+    #       name
+    #       shortBio {
+    #         shortBio
+    #       }
+    #       title
+    #       heroImage: image {
+    #         fluid(
+    #           maxWidth: 1180
+    #           maxHeight: 480
+    #           resizingBehavior: PAD
+    #           background: "rgb:000000"
+    #         ) {
+    #           ...GatsbyContentfulFluid_tracedSVG
+    #         }
+    #       }
+    #     }
+    #   }
+    # }
   }
 `

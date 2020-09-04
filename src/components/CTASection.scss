@@ -1,15 +1,32 @@
+$container-height: 600px;
+
 .call-to-action {
   //   display: flex;
   //   flex-direction: column;
   width: 100%;
-  height: 500px; // Change depending on screen width
-  overflow: hidden;
+  height: $container-height; // Change depending on screen width
+  // overflow: hidden;
   position: relative;
 
   & a.button {
     &:not(:first-child) {
       margin-top: 20px;
     }
+  }
+
+  & .question {
+    background-color: $secondary-color;
+    height: 90px;
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 7px solid white;
+    border-radius: 50px;
   }
 
   &__description,
@@ -27,7 +44,7 @@
   }
 
   &__background-image {
-    height: 500px; // Change depending on screen width
+    height: $container-height; // Change depending on screen width
   }
 
   &__content {
@@ -37,6 +54,26 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  & .icon-container {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    width: 100%;
+    z-index: 2000;
+    left: 0%;
+    bottom: -7%;
+  }
+
+  & .icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid white;
+    left: 0%;
+    bottom: 10%;
   }
 }
 
