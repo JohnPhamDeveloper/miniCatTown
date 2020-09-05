@@ -12,6 +12,8 @@ const CTASection = ({
   ctaSecondary,
   icons,
 }) => {
+  console.log(ctaPrimary)
+  console.log(ctaSecondary)
   return (
     <div className="call-to-action">
       {/* Section background image */}
@@ -35,14 +37,14 @@ const CTASection = ({
         <p className="call-to-action__description">{description}</p>
 
         {/* Optional primary call to action */}
-        {ctaPrimary.text !== 'UNDEFINED' ? (
+        {ctaPrimary && ctaPrimary.text && ctaPrimary.link ? (
           <a className="button button--important" href={ctaPrimary.link}>
             {ctaPrimary.text}
           </a>
         ) : null}
 
         {/* optional secondary call to action */}
-        {ctaSecondary.text !== 'UNDEFINED' ? (
+        {ctaSecondary && ctaSecondary.text && ctaSecondary.link ? (
           <a
             className="button"
             href={ctaSecondary.link}
@@ -88,15 +90,15 @@ CTASection.propTypes = {
   ),
 }
 
-CTASection.defaultProps = {
-  ctaPrimary: {
-    text: 'UNDEFINED',
-    link: 'UNDEFINED',
-  },
-  ctaSecondary: {
-    text: 'UNDEFINED',
-    link: 'UNDEFINED',
-  },
-}
+// CTASection.defaultProps = {
+//   ctaPrimary: {
+//     text: 'UNDEFINED',
+//     link: 'UNDEFINED',
+//   },
+//   ctaSecondary: {
+//     text: 'UNDEFINED',
+//     link: 'UNDEFINED',
+//   },
+// }
 
 export default CTASection
