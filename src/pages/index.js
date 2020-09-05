@@ -69,7 +69,7 @@ const RootIndex = ({ data }) => {
         />
         <div
           style={{
-            height: '180px',
+            height: '230px',
             width: '100%',
             background: 'rgb(255, 242, 221)',
           }}
