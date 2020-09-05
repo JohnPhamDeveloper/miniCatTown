@@ -20,12 +20,14 @@ const RootIndex = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
   const headline = data.allContentfulPageHeadline.edges[0].node.quote
   const siteLogo = data.allContentfulWebsiteLogo.edges[0].node.logoImage.fluid
+
+  // We extract each section one by one rather than mapping because
+  // we might want custom elements in between or custom styling for different sections
   const section = data.allContentfulPageSection.edges[0].node
+  const section2 = data.allContentfulPageSection.edges[1].node
 
   console.log(section)
-
-  // const posts = data.allContentfulBlogPost.edges
-  // const [author] = data.allContentfulPerson.edges
+  console.log(section2)
 
   const sectionCTAPrimary = {
     text: section.ctaPrimaryButtonText,
@@ -37,6 +39,16 @@ const RootIndex = ({ data }) => {
     link: section.ctaSecondaryButtonLink,
   }
 
+  const section2CTAPrimary = {
+    text: section2.ctaPrimaryButtonText,
+    link: section2.ctaPrimaryButtonLink,
+  }
+
+  const section2CTASecondary = {
+    text: section2.ctaSecondaryButtonText,
+    link: section2.ctaSecondaryButtonLink,
+  }
+
   return (
     <div className="main">
       <Header />
@@ -44,29 +56,36 @@ const RootIndex = ({ data }) => {
       <div className="logo-merger">
         <Img className="site-logo" fluid={siteLogo} />
       </div>
-      <Headline headlineText={headline} />
-      <CTASection
-        title={section.title}
-        description={section.description.description}
-        fluidImg={section.backgroundImage.fluid}
-        ctaPrimary={sectionCTAPrimary}
-        ctaSecondary={sectionCTASecondary}
-        icons={section.icons}
-      />
-      <div
-        style={{
-          height: '180px',
-          width: '100%',
-          background: 'rgb(255, 242, 221)',
-        }}
-      ></div>
-      <CTASection
-        title={section.title}
-        description={section.description.description}
-        fluidImg={section.backgroundImage.fluid}
-        ctaPrimary={sectionCTAPrimary}
-        icons={section.icons}
-      />
+      <main>
+        <Headline headlineText={headline} />
+        <CTASection
+          title={section.title}
+          question={section.question}
+          description={section.description.description}
+          fluidImg={section.backgroundImage.fluid}
+          ctaPrimary={sectionCTAPrimary}
+          ctaSecondary={sectionCTASecondary}
+          icons={section.icons}
+        />
+        <div
+          style={{
+            height: '180px',
+            width: '100%',
+            background: 'rgb(255, 242, 221)',
+          }}
+        ></div>
+        <CTASection
+          title={section2.title}
+          question={section2.question}
+          questionClassName="question-theme--1"
+          description={section2.description.description}
+          fluidImg={section2.backgroundImage.fluid}
+          ctaPrimary={section2CTAPrimary}
+          ctaSecondary={section2CTASecondary}
+          icons={section2.icons}
+        />
+      </main>
+
       {/* FOOTER */}
       <footer>
         Icons made by
@@ -161,7 +180,10 @@ export const pageQuery = graphql`
         }
       }
     }
-    allContentfulPageSection {
+    allContentfulPageSection(
+      filter: { node_locale: { eq: "en-US" } }
+      sort: { fields: [createdAt], order: ASC }
+    ) {
       edges {
         node {
           backgroundImage {
@@ -173,6 +195,7 @@ export const pageQuery = graphql`
           description {
             description
           }
+          question
           ctaPrimaryButtonText
           ctaPrimaryButtonLink
           ctaSecondaryButtonLink

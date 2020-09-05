@@ -5,6 +5,8 @@ import Img from 'gatsby-image'
 const CTASection = ({
   fluidImg,
   title,
+  question,
+  questionClassName,
   description,
   ctaPrimary,
   ctaSecondary,
@@ -21,8 +23,8 @@ const CTASection = ({
       </div>
 
       {/* Question */}
-      <div className="question">
-        <p className="question-text">Want to help our kittens?</p>
+      <div className={`question ${questionClassName}`}>
+        <p className="question-text">{question}</p>
       </div>
 
       <div className="call-to-action__content">
@@ -53,7 +55,7 @@ const CTASection = ({
 
         {/* Cat Icons */}
         <div className="icon-container">
-          {typeof icons !== 'undefined'
+          {icons
             ? icons.map((icon) => (
                 <Img className="icon" fluid={icon.fluid}></Img>
               ))
@@ -67,6 +69,7 @@ const CTASection = ({
 CTASection.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string.isRequired,
+  question: PropTypes.string,
   fluidImg: PropTypes.shape({
     src: PropTypes.string,
   }).isRequired,
@@ -78,6 +81,11 @@ CTASection.propTypes = {
     text: PropTypes.string,
     link: PropTypes.string,
   }),
+  icons: PropTypes.arrayOf(
+    PropTypes.shape({
+      src: PropTypes.string,
+    })
+  ),
 }
 
 CTASection.defaultProps = {

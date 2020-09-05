@@ -25,7 +25,7 @@ $container-height: 600px;
     top: 0%;
     left: 50%;
     transform: translate(-50%, -50%);
-    border: 5px solid white;
+    border: 7px solid white;
     border-radius: 50px;
   }
 
@@ -74,6 +74,12 @@ $container-height: 600px;
     border: 2px solid white;
     left: 0%;
     bottom: 10%;
+  }
+
+  & .question-theme--1 {
+    background-color: $primary-color !important;
+    color: white !important;
+    border-color: $secondary-color !important;
   }
 }
 
