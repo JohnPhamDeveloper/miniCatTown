@@ -14,3 +14,12 @@
   border-radius: 50%;
   background-color: white;
 }
+
+.testimonial-section {
+  background-color: $grey;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-items: center;
+  padding: 50px 50px;
+}

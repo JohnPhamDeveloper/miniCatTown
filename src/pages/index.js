@@ -15,6 +15,7 @@ import '../scss/main.scss'
 import Header from '../components/Header'
 import CTASection from '../components/CTASection'
 import Headline from '../components/Headline'
+import Testimonial from '../components/Testimonial'
 
 const RootIndex = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -26,9 +27,9 @@ const RootIndex = ({ data }) => {
   const section = data.allContentfulPageSection.edges[0].node
   const section2 = data.allContentfulPageSection.edges[1].node
 
-  console.log(section)
-  console.log(section2)
+  const testimonials = data.allContentfulPageTestimonial.edges
 
+  console.log(testimonials)
   const sectionCTAPrimary = {
     text: section.ctaPrimaryButtonText,
     link: section.ctaPrimaryButtonLink,
@@ -84,6 +85,15 @@ const RootIndex = ({ data }) => {
           ctaSecondary={section2CTASecondary}
           icons={section2.icons}
         />
+
+        {/* Testimonial; make className for Testimonials? */}
+        <section className="testimonial-section">
+          <Testimonial
+            quote={testimonials[0].node.quote}
+            image={testimonials[0].node.image.fluid}
+            name={testimonials[0].node.companypersonName}
+          />
+        </section>
       </main>
 
       {/* FOOTER */}
@@ -174,6 +184,20 @@ export const pageQuery = graphql`
         node {
           logoImage {
             fluid(maxWidth: 800) {
+              ...GatsbyContentfulFluid
+            }
+          }
+        }
+      }
+    }
+    allContentfulPageTestimonial {
+      edges {
+        node {
+          name
+          quote
+          companypersonName
+          image {
+            fluid(maxWidth: 1000) {
               ...GatsbyContentfulFluid
             }
           }

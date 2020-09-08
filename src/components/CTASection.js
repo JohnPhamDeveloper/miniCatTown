@@ -12,8 +12,6 @@ const CTASection = ({
   ctaSecondary,
   icons,
 }) => {
-  console.log(ctaPrimary)
-  console.log(ctaSecondary)
   return (
     <div className="call-to-action">
       {/* Section background image */}

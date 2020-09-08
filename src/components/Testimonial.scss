@@ -1,0 +1,39 @@
+.testimonial {
+  width: 400px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: #ffffff;
+  position: relative;
+  //   padding: 50px 50px;
+  align-items: center;
+
+  -webkit-box-shadow: 10px 9px 26px -4px rgba(0, 0, 0, 0.16);
+  -moz-box-shadow: 10px 9px 26px -4px rgba(0, 0, 0, 0.16);
+  box-shadow: 10px 9px 26px -4px rgba(0, 0, 0, 0.16);
+
+  &__image {
+    padding: 5px;
+    width: 60%;
+    border-radius: 5px;
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: $primary-color;
+
+    -webkit-box-shadow: 0px 0px 22px -1px rgba(0, 0, 0, 0.34);
+    -moz-box-shadow: 0px 0px 22px -1px rgba(0, 0, 0, 0.34);
+    box-shadow: 0px 0px 22px -1px rgba(0, 0, 0, 0.34);
+  }
+
+  &__info {
+    margin-top: 50px;
+  }
+
+  &__quote {
+    text-align: center;
+    width: 350px;
+  }
+}

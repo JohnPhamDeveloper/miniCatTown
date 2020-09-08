@@ -4,3 +4,7 @@ a:hover,
 a:active {
   text-decoration: none;
 }
+
+* {
+  box-sizing: border-box !important;
+}
