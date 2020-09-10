@@ -18,8 +18,28 @@
 .testimonial-section {
   background-color: $grey;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
   width: 100%;
   align-items: center;
-  padding: 50px 50px;
+  padding: 50px 0px;
+
+  & > .testimonial {
+    margin: 40px 40px 40px 40px;
+    width: 100%;
+    max-width: 500px;
+    height: 100%;
+
+    &__quote {
+      font-size: 3000px !important;
+      max-width: 350px;
+    }
+  }
+
+  // & .testimonial:not(:first-child) {
+  //   margin-top: 100px;
+  // }
 }

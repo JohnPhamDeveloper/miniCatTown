@@ -93,6 +93,11 @@ const RootIndex = ({ data }) => {
             image={testimonials[0].node.image.fluid}
             name={testimonials[0].node.companypersonName}
           />
+          <Testimonial
+            quote={testimonials[1].node.quote}
+            image={testimonials[1].node.image.fluid}
+            name={testimonials[1].node.companypersonName}
+          />
         </section>
       </main>
 
