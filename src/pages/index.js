@@ -88,16 +88,25 @@ const RootIndex = ({ data }) => {
 
         {/* Testimonial; make className for Testimonials? */}
         <section className="testimonial-section">
-          <Testimonial
-            quote={testimonials[0].node.quote}
-            image={testimonials[0].node.image.fluid}
-            name={testimonials[0].node.companypersonName}
-          />
-          <Testimonial
-            quote={testimonials[1].node.quote}
-            image={testimonials[1].node.image.fluid}
-            name={testimonials[1].node.companypersonName}
-          />
+          <div className="testimonial__header">
+            <h1 className="testimonial__header__title">Testimonials</h1>
+            <p className="testimonial__header__subtitle">
+              What’s all the meow about?
+            </p>
+          </div>
+
+          <div className="testimonial-content">
+            <Testimonial
+              quote={testimonials[0].node.quote}
+              image={testimonials[0].node.image.fluid}
+              name={testimonials[0].node.companypersonName}
+            />
+            <Testimonial
+              quote={testimonials[1].node.quote}
+              image={testimonials[1].node.image.fluid}
+              name={testimonials[1].node.companypersonName}
+            />
+          </div>
         </section>
       </main>
 
