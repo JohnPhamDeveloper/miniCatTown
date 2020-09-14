@@ -27,9 +27,16 @@
     }
 
     &__block {
-      @media only screen and (min-width: $breakpoint-medium) {
+      display: flex;
+
+      @media only screen and (min-width: $breakpoint-large) {
         flex-direction: row;
-        margin-top: 0px;
+        text-align: left;
+      }
+
+      @media only screen and (max-width: $breakpoint-medium) {
+        flex-direction: column;
+        text-align: center;
       }
 
       &:not(:first-child) {
@@ -42,7 +49,7 @@
       font-weight: bold;
       color: $grey;
       margin: 0px;
-      display: inline-block;
+      // display: inline-block;
       width: 200px;
     }
 
@@ -50,7 +57,7 @@
       font-size: 1rem;
       color: $grey;
       margin: 0px;
-      display: inline-block;
+      //  display: inline-block;
 
       @media only screen and (min-width: $breakpoint-medium) {
         //margin-left: 100px;
@@ -92,6 +99,7 @@
         font-weight: bold;
         font-size: 1.1rem;
         padding: 15px 0;
+        cursor: pointer;
 
         display: flex;
         flex-direction: row;
