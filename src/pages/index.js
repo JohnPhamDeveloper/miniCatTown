@@ -16,6 +16,7 @@ import Header from '../components/Header'
 import CTASection from '../components/CTASection'
 import Headline from '../components/Headline'
 import Testimonial from '../components/Testimonial'
+import Footer from '../components/Footer'
 
 const RootIndex = ({ data }) => {
   const siteTitle = data.site.siteMetadata.title
@@ -110,27 +111,7 @@ const RootIndex = ({ data }) => {
         </section>
       </main>
 
-      {/* FOOTER */}
-      <footer>
-        Icons made by
-        <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
-          Freepik
-        </a>
-        from
-        <a href="https://www.flaticon.com/" title="Flaticon">
-          www.flaticon.com
-        </a>
-        <div>
-          Icons made by
-          <a href="https://www.flaticon.com/authors/freepik" title="Freepik">
-            Freepik
-          </a>
-          from
-          <a href="https://www.flaticon.com/" title="Flaticon">
-            www.flaticon.com
-          </a>
-        </div>
-      </footer>
+      <Footer />
     </div>
   )
 }

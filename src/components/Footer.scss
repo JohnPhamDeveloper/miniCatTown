@@ -1,0 +1,132 @@
+.footer {
+  background-color: $primary-color;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 60px;
+
+  &__about {
+    color: $grey;
+    text-align: center;
+    width: 50%;
+
+    @media only screen and (max-width: $breakpoint-medium) {
+      width: 80%;
+    }
+  }
+
+  & .open-time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &__title {
+      margin: 30px 0px 10px 0px;
+      color: $grey;
+    }
+
+    &__block {
+      @media only screen and (min-width: $breakpoint-medium) {
+        flex-direction: row;
+        margin-top: 0px;
+      }
+
+      &:not(:first-child) {
+        margin-top: 10px;
+      }
+    }
+
+    &__day {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: $grey;
+      margin: 0px;
+      display: inline-block;
+      width: 200px;
+    }
+
+    &__hours {
+      font-size: 1rem;
+      color: $grey;
+      margin: 0px;
+      display: inline-block;
+
+      @media only screen and (min-width: $breakpoint-medium) {
+        //margin-left: 100px;
+
+        &:not(:first-child) {
+          margin-top: 0px;
+        }
+      }
+    }
+  }
+
+  &__nav {
+    width: 95%;
+    margin-top: 30px;
+    &__list {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    &__item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border-bottom: 1px solid white;
+      width: 90%;
+
+      &:first-child {
+        border-top: 1px solid white;
+      }
+
+      &__button {
+        background: none;
+        border: none;
+        border-radius: 0px;
+        padding: 0px;
+        margin: 0px;
+        color: $grey;
+        font-weight: bold;
+        font-size: 1.1rem;
+        padding: 15px 0;
+
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+
+        & p {
+          margin: 0px auto 0px 0px;
+        }
+
+        // In code, when button is clicked and active
+        // Animate the SVG and set --is-active CSS classname
+        // Then show the open hours from width: 100%; and height: 0% to height 100%;
+        // Might want to use max height like the cat adoption site
+
+        &:active {
+          & svg {
+            transform: rotate(180deg);
+          }
+        }
+      }
+
+      & svg {
+        width: 25px;
+        height: 25px;
+        fill: $grey;
+        // transform: rotate(-90deg);
+        // transition: transform 0.15s;
+        // -webkit-transform: 0.15s;
+      }
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0px;
+      margin: 0px;
+    }
+  }
+}

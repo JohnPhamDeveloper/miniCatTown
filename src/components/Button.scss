@@ -10,7 +10,7 @@ a.button {
   //   text-transform: uppercase;
   cursor: pointer;
   border: 2px solid white;
-  width: 50%;
+  width: 70%;
   transition: width 0.3s, background-color 0.3s, border-color 0.3s,
     box-shadow 0.3s, color 0.1s, -webkit-box-shadow 0.3s, text-shadow 0.1s;
 
@@ -18,7 +18,7 @@ a.button {
     color: $primary-color;
     background-color: white;
     text-shadow: 0 0px 0px #4d475100, 0 0 0px #4d475100, 0 0 0px #4d475100;
-    width: 55%;
+    width: 75%;
   }
 
   &--important {
