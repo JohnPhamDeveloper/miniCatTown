@@ -8,7 +8,6 @@ const Header = ({ logo }) => {
       <Link className="header__title" to="/">
         Mini Cat Town
       </Link>
-      <div className="header__fill"></div>
       <Navbar />
     </header>
   )
