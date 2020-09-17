@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
@@ -19,6 +19,8 @@ import Testimonial from '../components/Testimonial'
 import Footer from '../components/Footer'
 
 const RootIndex = ({ data }) => {
+  const [toggleHamburger, setToggleHamburger] = useState(false)
+
   const siteTitle = data.site.siteMetadata.title
   const headline = data.allContentfulPageHeadline.edges[0].node.quote
   const siteLogo = data.allContentfulWebsiteLogo.edges[0].node.logoImage.fluid
@@ -53,12 +55,20 @@ const RootIndex = ({ data }) => {
 
   return (
     <div className="main">
-      <Header />
+      <Header
+        setToggleHamburger={setToggleHamburger}
+        toggleHamburger={toggleHamburger}
+      />
       {/* Logo */}
       <div className="logo-merger">
         <Img className="site-logo" fluid={siteLogo} />
       </div>
       <main>
+        {/* Dropdown Nav Menu */}
+        {/* IMPLEMENT DROPDOWN NAV HERE */}
+        {/* https://www.bt.com/about/annual-reports/2020summary/#stories */}
+        {/*  */}
+        <div className=""></div>
         <Headline headlineText={headline} />
         <CTASection
           title={section.title}

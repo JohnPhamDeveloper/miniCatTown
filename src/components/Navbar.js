@@ -1,8 +1,6 @@
 import React, { useState } from 'react'
 
-const Navbar = () => {
-  const [toggleHamburger, setToggleHamburger] = useState(false)
-
+const Navbar = ({ toggleHamburger, setToggleHamburger }) => {
   return (
     <nav className="navbar">
       {/* Navlinks */}
