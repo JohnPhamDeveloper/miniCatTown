@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Footer = () => {
+  const [toggleOpenHours, setToggleOpenHours] = useState(false)
+
   return (
     <footer className="footer">
       <p className="footer__about">
@@ -14,39 +16,18 @@ const Footer = () => {
         wait for approval to schedule an appointment with us. All unapproved
         applicants are subject to admission fees.
       </p>
-      <div className="open-time">
-        <h1 className="open-time__title">Opening Hours</h1>
-        <div className="open-time__block">
-          <p className="open-time__day">Monday</p>
-          <p className="open-time__hours">12:00am - 12:00pm</p>
-        </div>
-        <div className="open-time__block">
-          <p className="open-time__day">Tuesday</p>
-          <p className="open-time__hours">12:00am - 12:00pm</p>
-        </div>
-        <div className="open-time__block">
-          <p className="open-time__day">Tuesday</p>
-          <p className="open-time__hours">12:00am - 12:00pm</p>
-        </div>
-        <div className="open-time__block">
-          <p className="open-time__day">Tuesday</p>
-          <p className="open-time__hours">12:00am - 12:00pm</p>
-        </div>
-        <div className="open-time__block">
-          <p className="open-time__day">Tuesday</p>
-          <p className="open-time__hours">12:00am - 12:00pm</p>
-        </div>
-        <div className="open-time__block">
-          <p className="open-time__day">Thursday</p>
-          <p className="open-time__hours">12:00am - 12:00pm</p>
-        </div>
-      </div>
 
       <nav className="footer__nav">
         <ul className="footer__nav__list">
           <li className="footer__nav__item">
-            <button type="button" className="footer__nav__item__button">
+            {/* Opening Hour Dropdown */}
+            <button
+              type="button"
+              className="footer__nav__item__button"
+              onClick={() => setToggleOpenHours(!toggleOpenHours)}
+            >
               <p>Opening Hours</p>
+              {/* Arrow SVG */}
               <svg
                 className="footer__nav__item__arrow"
                 version="1.1"
@@ -61,6 +42,38 @@ const Footer = () => {
               </svg>
             </button>
           </li>
+          {/* Opening Hour List */}
+          <div
+            className={`open-time${
+              toggleOpenHours ? ' open-time--is-active' : ''
+            }`}
+          >
+            {/* <h1 className="open-time__title">Opening Hours</h1> */}
+            <div className="open-time__block">
+              <p className="open-time__day">Monday</p>
+              <p className="open-time__hours">12:00am - 12:00pm</p>
+            </div>
+            <div className="open-time__block">
+              <p className="open-time__day">Tuesday</p>
+              <p className="open-time__hours">12:00am - 12:00pm</p>
+            </div>
+            <div className="open-time__block">
+              <p className="open-time__day">Tuesday</p>
+              <p className="open-time__hours">12:00am - 12:00pm</p>
+            </div>
+            <div className="open-time__block">
+              <p className="open-time__day">Tuesday</p>
+              <p className="open-time__hours">12:00am - 12:00pm</p>
+            </div>
+            <div className="open-time__block">
+              <p className="open-time__day">Tuesday</p>
+              <p className="open-time__hours">12:00am - 12:00pm</p>
+            </div>
+            <div className="open-time__block">
+              <p className="open-time__day">Thursday</p>
+              <p className="open-time__hours">12:00am - 12:00pm</p>
+            </div>
+          </div>
           <li className="footer__nav__item">
             <button className="footer__nav__item__button">
               Mini Cat Town Privacy Kit
