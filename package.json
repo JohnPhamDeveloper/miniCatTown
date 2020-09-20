@@ -1,11 +1,8 @@
 {
-  "name": "gatsby-contentful-starter",
-  "description": "Starter Contentful Gatsby Blog",
+  "name": "mini-cat-town",
+  "description": "Adopt and visit kittens here are mini cat town!",
   "version": "1.0.0",
-  "author": "Stefan Judis <stefanjudis@gmail.com>",
-  "bugs": {
-    "url": "https://github.com/contentful-userland/gatsby-contentful-starter/issues"
-  },
+  "author": "John Pham <johnphamdeveloper@hotmail.com>",
   "dependencies": {
     "body-scroll-lock": "^3.1.5",
     "gatsby-image": "^2.3.4",
