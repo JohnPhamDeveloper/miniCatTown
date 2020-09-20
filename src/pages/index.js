@@ -75,7 +75,7 @@ const RootIndex = ({ data }) => {
         setToggleHamburger={setToggleHamburger}
         toggleHamburger={toggleHamburger}
       />
-      <NavDropdown />
+      <NavDropdown isEnabled={toggleHamburger} />
       {/* Logo */}
       <div className="logo-merger">
         <Img className="site-logo" fluid={siteLogo} />

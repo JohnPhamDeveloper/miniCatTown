@@ -9,32 +9,32 @@ import { Link } from 'gatsby'
 
 /*  */
 
-const NavDropdown = ({ enable }) => {
+const NavDropdown = ({ isEnabled }) => {
   return (
-    <div className="nav-dropdown">
+    <div className={`nav-dropdown ${isEnabled ? 'nav-dropdown--active' : ''}`}>
       <ul className="nav-dropdown__list">
-        <li>
+        <li style={{ ['--animation-order']: 1 }}>
           <Link to="/blog">Home</Link>
         </li>
-        <li>
+        <li style={{ ['--animation-order']: 2 }}>
           <Link to="/blog">About Us</Link>
         </li>
-        <li>
+        <li style={{ ['--animation-order']: 3 }}>
           <Link to="/blog">Adoption</Link>
         </li>
-        <li>
+        <li style={{ ['--animation-order']: 4 }}>
           <Link to="/blog">Donate</Link>
         </li>
-        <li>
+        <li style={{ ['--animation-order']: 5 }}>
           <Link to="/blog">Visit Us</Link>
         </li>
-        <li>
+        <li style={{ ['--animation-order']: 6 }}>
           <Link to="/blog">Our Team</Link>
         </li>
-        <li>
+        <li style={{ ['--animation-order']: 7 }}>
           <Link to="/blog">Our Community</Link>
         </li>
-        <li>
+        <li style={{ ['--animation-order']: 8 }}>
           <Link to="/blog">Blog</Link>
         </li>
       </ul>
