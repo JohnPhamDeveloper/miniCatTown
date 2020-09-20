@@ -4,7 +4,7 @@ import Navbar from './Navbar'
 
 const Header = ({ logo, toggleHamburger, setToggleHamburger }) => {
   return (
-    <header className={`header${toggleHamburger ? ' header--shadow' : ''}`}>
+    <header className={`header header--shadow`}>
       <Link className="header__title" to="/">
         Mini Cat Town
       </Link>

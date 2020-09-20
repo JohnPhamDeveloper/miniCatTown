@@ -1,7 +1,12 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from 'body-scroll-lock'
 import '../scss/main.scss'
 // import '../scss/reset.scss'
 // import '../scss/base.scss'
@@ -17,9 +22,21 @@ import CTASection from '../components/CTASection'
 import Headline from '../components/Headline'
 import Testimonial from '../components/Testimonial'
 import Footer from '../components/Footer'
+import NavDropdown from '../components/NavDropdown'
 
 const RootIndex = ({ data }) => {
   const [toggleHamburger, setToggleHamburger] = useState(false)
+  const parentRef = useRef(null)
+
+  useEffect(() => {
+    if (parentRef) {
+      if (toggleHamburger) {
+        disableBodyScroll(parentRef.current)
+      } else {
+        enableBodyScroll(parentRef.current)
+      }
+    }
+  }, [toggleHamburger])
 
   const siteTitle = data.site.siteMetadata.title
   const headline = data.allContentfulPageHeadline.edges[0].node.quote
@@ -32,7 +49,6 @@ const RootIndex = ({ data }) => {
 
   const testimonials = data.allContentfulPageTestimonial.edges
 
-  console.log(testimonials)
   const sectionCTAPrimary = {
     text: section.ctaPrimaryButtonText,
     link: section.ctaPrimaryButtonLink,
@@ -54,21 +70,17 @@ const RootIndex = ({ data }) => {
   }
 
   return (
-    <div className="main">
+    <div className="main" ref={parentRef}>
       <Header
         setToggleHamburger={setToggleHamburger}
         toggleHamburger={toggleHamburger}
       />
+      <NavDropdown />
       {/* Logo */}
       <div className="logo-merger">
         <Img className="site-logo" fluid={siteLogo} />
       </div>
       <main>
-        {/* Dropdown Nav Menu */}
-        {/* IMPLEMENT DROPDOWN NAV HERE */}
-        {/* https://www.bt.com/about/annual-reports/2020summary/#stories */}
-        {/*  */}
-        <div className=""></div>
         <Headline headlineText={headline} />
         <CTASection
           title={section.title}
