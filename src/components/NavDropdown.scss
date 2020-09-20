@@ -1,7 +1,7 @@
 .nav-dropdown {
   position: fixed;
   height: 0%;
-  width: 0%;
+  width: 100%;
   pointer-events: none;
   overflow: hidden;
   background-color: $primary-color;
@@ -19,8 +19,8 @@
 
     & li {
       animation-name: animateIn !important;
-      animation-duration: 350ms !important;
-      animation-delay: calc(var(--animation-order) * 100ms) !important;
+      animation-duration: 250ms !important;
+      animation-delay: calc(var(--animation-order) * 50ms) !important;
       animation-fill-mode: both !important;
       animation-timing-function: ease-in-out !important;
     }
@@ -39,9 +39,9 @@
     width: 300px;
 
     animation-name: animateOut;
-    animation-duration: 350ms;
+    animation-duration: 150ms;
     // Set delay for each element
-    animation-delay: calc(var(--animation-order) * 100ms);
+    animation-delay: calc(var(--animation-order) * 20ms);
     animation-fill-mode: both;
     animation-timing-function: ease-in-out;
   }
