@@ -1,4 +1,9 @@
-import React from 'react'
+import React, { useRef, useEffect } from 'react'
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from 'body-scroll-lock'
 import { Link } from 'gatsby'
 
 /* Dropdown Nav Menu */
@@ -10,8 +15,23 @@ import { Link } from 'gatsby'
 /*  */
 
 const NavDropdown = ({ isEnabled }) => {
+  const parentRef = useRef(null)
+
+  useEffect(() => {
+    if (parentRef) {
+      if (isEnabled) {
+        disableBodyScroll(parentRef.current)
+      } else {
+        enableBodyScroll(parentRef.current)
+      }
+    }
+  }, [isEnabled])
+
   return (
-    <div className={`nav-dropdown ${isEnabled ? 'nav-dropdown--active' : ''}`}>
+    <div
+      className={`nav-dropdown ${isEnabled ? 'nav-dropdown--active' : ''}`}
+      ref={parentRef}
+    >
       <ul className="nav-dropdown__list">
         <li style={{ ['--animation-order']: 1 }}>
           <Link to="/blog">Home</Link>

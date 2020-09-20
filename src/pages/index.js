@@ -2,11 +2,6 @@ import React, { useState, useEffect, useRef } from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
-import {
-  disableBodyScroll,
-  enableBodyScroll,
-  clearAllBodyScrollLocks,
-} from 'body-scroll-lock'
 import '../scss/main.scss'
 // import '../scss/reset.scss'
 // import '../scss/base.scss'
@@ -26,17 +21,6 @@ import NavDropdown from '../components/NavDropdown'
 
 const RootIndex = ({ data }) => {
   const [toggleHamburger, setToggleHamburger] = useState(false)
-  const parentRef = useRef(null)
-
-  useEffect(() => {
-    if (parentRef) {
-      if (toggleHamburger) {
-        disableBodyScroll(parentRef.current)
-      } else {
-        enableBodyScroll(parentRef.current)
-      }
-    }
-  }, [toggleHamburger])
 
   const siteTitle = data.site.siteMetadata.title
   const headline = data.allContentfulPageHeadline.edges[0].node.quote
@@ -70,7 +54,7 @@ const RootIndex = ({ data }) => {
   }
 
   return (
-    <div className="main" ref={parentRef}>
+    <div className="main">
       <Header
         setToggleHamburger={setToggleHamburger}
         toggleHamburger={toggleHamburger}
