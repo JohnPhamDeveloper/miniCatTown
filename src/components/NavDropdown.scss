@@ -10,6 +10,29 @@
   -webkit-transition: 0.6s cubic-bezier(0.475, 0.425, 0, 0.995);
   transition: 0.6s cubic-bezier(0.475, 0.425, 0, 0.995);
 
+  @media only screen and (min-width: $breakpoint-large) {
+    width: 85%;
+    position: relative;
+
+    &__list {
+      flex-direction: row;
+    }
+  }
+
+  @media only screen and (max-width: $breakpoint-medium) {
+    // width: 85%;
+    // position: relative;
+
+    // &__list {
+    //   flex-direction: row;
+    // }
+
+    // & li {
+    //   opacity: 1 !important;
+    //   transform: scale(0) transformY(0px);
+    // }
+  }
+
   &--active {
     height: 100%;
     width: 100%;

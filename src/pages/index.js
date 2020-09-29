@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import PropTypes from 'prop-types'
+import { useMediaQuery } from 'react-responsive'
 import '../scss/main.scss'
 // import '../scss/reset.scss'
 // import '../scss/base.scss'
@@ -24,6 +25,7 @@ import CTAMultipleLayout from '../components/CTAMultipleLayout'
 
 const RootIndex = ({ data }) => {
   const [toggleHamburger, setToggleHamburger] = useState(false)
+  const isBigScreen = useMediaQuery({ query: '(min-device-width: 1024px)' })
 
   const siteTitle = data.site.siteMetadata.title
   const headline = data.allContentfulPageHeadline.edges[0].node.quote
@@ -62,7 +64,8 @@ const RootIndex = ({ data }) => {
         setToggleHamburger={setToggleHamburger}
         toggleHamburger={toggleHamburger}
       />
-      <NavDropdown isEnabled={toggleHamburger} />
+      {!isBigScreen ? <NavDropdown isEnabled={toggleHamburger} /> : null}
+
       {/* Logo */}
       <div className="logo-merger">
         <Img className="site-logo" fluid={siteLogo} />
