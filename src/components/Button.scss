@@ -1,3 +1,8 @@
+$button-mobile-width: 70%;
+$button-mobile-onHover-width: 75%;
+$button-tablet-width: 300px;
+$button-tablet-onHover-width: 350px;
+
 a.button {
   padding: 13px 24px;
   background-color: transparent;
@@ -10,15 +15,23 @@ a.button {
   //   text-transform: uppercase;
   cursor: pointer;
   border: 2px solid white;
-  width: 70%;
+  width: $button-mobile-width;
   transition: width 0.3s, background-color 0.3s, border-color 0.3s,
     box-shadow 0.3s, color 0.1s, -webkit-box-shadow 0.3s, text-shadow 0.1s;
+
+  @media only screen and (min-width: $breakpoint-medium) {
+    width: $button-tablet-width;
+  }
 
   &:hover {
     color: $primary-color;
     background-color: white;
     text-shadow: 0 0px 0px #4d475100, 0 0 0px #4d475100, 0 0 0px #4d475100;
-    width: 75%;
+    width: $button-mobile-onHover-width;
+
+    @media only screen and (min-width: $breakpoint-medium) {
+      width: $button-tablet-onHover-width;
+    }
   }
 
   &--important {
@@ -26,24 +39,30 @@ a.button {
     text-shadow: none;
     color: white;
     border: none;
-    width: 70%;
 
     &:hover {
-      width: 75%;
+      width: $button-mobile-onHover-width;
       color: white;
       background-color: $red-dark;
+
+      @media only screen and (min-width: $breakpoint-medium) {
+        width: $button-tablet-onHover-width;
+      }
     }
   }
 
   &--primary {
     background-color: $primary-color;
     color: white;
-    width: 70%;
 
     &:hover {
       color: white;
       background-color: $primary-color-light;
       width: 75%;
+
+      @media only screen and (min-width: $breakpoint-medium) {
+        width: $button-tablet-onHover-width;
+      }
     }
   }
 

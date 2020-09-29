@@ -1,0 +1,37 @@
+.call-to-action-layout {
+  .call-to-action-divider {
+    width: 100%;
+    height: 230px;
+    background: rgb(255, 242, 221);
+  }
+  @media only screen and (min-width: $breakpoint-large) {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 0px 50px 0px 50px;
+
+    .call-to-action-divider {
+      width: 0%;
+      height: 0%;
+      opacity: 0;
+    }
+
+    background: rgb(237, 237, 237);
+    background: -moz-linear-gradient(
+      0deg,
+      rgba(237, 237, 237, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    background: -webkit-linear-gradient(
+      0deg,
+      rgba(237, 237, 237, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    background: linear-gradient(
+      0deg,
+      rgba(237, 237, 237, 1) 0%,
+      rgba(255, 255, 255, 1) 100%
+    );
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ededed",endColorstr="#ffffff",GradientType=1);
+  }
+}

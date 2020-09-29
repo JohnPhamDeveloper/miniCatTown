@@ -1,8 +1,13 @@
+.main {
+  .call-to-action {
+  }
+}
+
 .logo-merger {
   background-color: $primary-color;
   height: 100px;
   width: 100%;
-  border-radius: 50px 50px 0px 0px;
+  // border-radius: 50px 50px 0px 0px;
   // Account for fixed header height
   margin-top: 70px;
 }
@@ -21,6 +26,10 @@
   background-color: $grey;
   padding-top: 80px;
   padding-bottom: 80px;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    padding-top: 120px;
+  }
 
   & .testimonial-content {
     display: flex;

@@ -18,6 +18,9 @@ import Headline from '../components/Headline'
 import Testimonial from '../components/Testimonial'
 import Footer from '../components/Footer'
 import NavDropdown from '../components/NavDropdown'
+import CTALayout from '../components/CTALayout'
+import CTAMultiple from '../components/CTAMultiple'
+import CTAMultipleLayout from '../components/CTAMultipleLayout'
 
 const RootIndex = ({ data }) => {
   const [toggleHamburger, setToggleHamburger] = useState(false)
@@ -66,32 +69,38 @@ const RootIndex = ({ data }) => {
       </div>
       <main>
         <Headline headlineText={headline} />
-        <CTASection
-          title={section.title}
-          question={section.question}
-          description={section.description.description}
-          fluidImg={section.backgroundImage.fluid}
-          ctaPrimary={sectionCTAPrimary}
-          ctaSecondary={sectionCTASecondary}
-          icons={section.icons}
-        />
-        <div
-          style={{
-            height: '230px',
-            width: '100%',
-            background: 'rgb(255, 242, 221)',
-          }}
-        ></div>
-        <CTASection
-          title={section2.title}
-          question={section2.question}
-          questionClassName="question-theme--1"
-          description={section2.description.description}
-          fluidImg={section2.backgroundImage.fluid}
-          ctaPrimary={section2CTAPrimary}
-          ctaSecondary={section2CTASecondary}
-          icons={section2.icons}
-        />
+        {/* CTALayout Component here */}
+        {/* "Planning to find a pet?" */}
+        {/* Combine CTA as a section that doesnt expand 100% */}
+        {/* Then planning to find a pet thats 100% (volunteering and want to help section) */}
+        <CTALayout>
+          <CTASection
+            title={section.title}
+            question={section.question}
+            description={section.description.description}
+            fluidImg={section.backgroundImage.fluid}
+            ctaPrimary={sectionCTAPrimary}
+            ctaSecondary={sectionCTASecondary}
+            icons={section.icons}
+          />
+          <div className="call-to-action-divider"></div>
+          <CTASection
+            title={section2.title}
+            question={section2.question}
+            questionClassName="question-theme--1"
+            description={section2.description.description}
+            fluidImg={section2.backgroundImage.fluid}
+            ctaPrimary={section2CTAPrimary}
+            ctaSecondary={section2CTASecondary}
+            icons={section2.icons}
+          />
+        </CTALayout>
+
+        <CTAMultipleLayout>
+          <CTAMultiple></CTAMultiple>
+          <CTAMultiple></CTAMultiple>
+          <CTAMultiple></CTAMultiple>
+        </CTAMultipleLayout>
 
         {/* Testimonial; make className for Testimonials? */}
         <section className="testimonial-section">
