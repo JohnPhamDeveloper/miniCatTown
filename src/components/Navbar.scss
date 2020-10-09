@@ -1,4 +1,11 @@
 .navbar {
+  height: 100%;
+  overflow: visible;
+
+  @media only screen and (min-width: $breakpoint-large) {
+    margin-right: 50px;
+  }
+
   .hamburger {
     @media only screen and (min-width: $breakpoint-large) {
       display: none;

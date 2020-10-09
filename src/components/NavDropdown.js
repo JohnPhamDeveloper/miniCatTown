@@ -7,15 +7,7 @@ import {
 import { Link } from 'gatsby'
 import ExpandableButton from './ExpandableButton'
 
-/* Dropdown Nav Menu */
-
-/* IMPLEMENT DROPDOWN NAV HERE */
-
-/* https://www.bt.com/about/annual-reports/2020summary/#stories */
-
-/*  */
-
-const NavDropdown = ({ isEnabled }) => {
+const NavDropdown = ({ isEnabled, isBigScreen }) => {
   const parentRef = useRef(null)
 
   useEffect(() => {
@@ -28,11 +20,6 @@ const NavDropdown = ({ isEnabled }) => {
     }
   }, [isEnabled])
 
-  // Put into own component
-  // const toggleButtonExpansion = () => {
-
-  // }
-
   return (
     <div
       className={`nav-dropdown ${isEnabled ? 'nav-dropdown--active' : ''}`}
@@ -42,20 +29,17 @@ const NavDropdown = ({ isEnabled }) => {
         {/* <li style={{ ['--animation-order']: 1 }}>
           <Link to="/blog">Home</Link>
         </li> */}
-        <li
-          className="nav-dropdown__item nav-dropdown__item--1"
-          style={{ ['--animation-order']: 1 }}
-        >
-          <ExpandableButton />
-        </li>
-        <li style={{ ['--animation-order']: 2 }}>
+        <li style={{ ['--animation-order']: 1 }}>
           <Link to="/blog">Adoption</Link>
         </li>
-        <li style={{ ['--animation-order']: 3 }}>
+        <li style={{ ['--animation-order']: 2 }}>
           <Link to="/blog">Donate</Link>
         </li>
-        <li style={{ ['--animation-order']: 4 }}>
+        <li style={{ ['--animation-order']: 3 }}>
           <Link to="/blog">Visit Us</Link>
+        </li>
+        <li className="nav-dropdown__item" style={{ ['--animation-order']: 4 }}>
+          <ExpandableButton isBigScreen={isBigScreen} />
         </li>
         {/* <li style={{ ['--animation-order']: 6 }}>
           <Link to="/blog">Our Team</Link>

@@ -10,22 +10,123 @@
   width: 500px;
   height: 100px;
   margin-left: 0px;
+  position: relative;
+  cursor: pointer;
+
+  //   &:hover + .btn__expansion__item,
+  //   .btn__expansion__item--enabled {
+  //     transform: scaleY(1);
+  //     margin-top: 25px;
+  //     // overflow: visible;
+  //     transform-origin: center top;
+  //     -webkit-transition: -webkit-transform 0.15s
+  //       cubic-bezier(0.215, 0.61, 0.355, 1);
+  //     transition: -webkit-transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+  //     -o-transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+  //     transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+  //     max-height: 500px;
+  //     @media only screen and (min-width: $breakpoint-large) {
+  //       max-height: 500px;
+  //       // padding: 30px;
+  //       margin-top: 0px;
+  //     }
+  //   }
 
   &__item {
-    margin-top: 0px;
-    max-height: 0px;
+    // margin-top: 0px;
+    transform: scaleY(0);
     overflow: hidden;
-    -webkit-transition: all 0.2s linear, padding 0.2s linear;
-    -o-transition: all 0.2s linear, padding 0.2s linear;
-    transition: all 0.2s linear, padding 0.2s linear;
+    // -webkit-transition: max-height 0.3s linear;
+    // -o-transition: max-height 0.3s linear;
+    // transition: max-height 0.3s linear;
+    // transform-origin: 50% 50%;
+    transform-origin: center top;
+    -webkit-transition: -webkit-transform 0.15s
+      cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: -webkit-transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+    -o-transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+    transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+    @media only screen and (min-width: $breakpoint-large) {
+      // While hovering over item, make sure it stays and doesn't go away
+      &:hover {
+        transform: scaleY(1);
+        // margin-top: 25px;
+        overflow: visible;
+        transform-origin: center top;
+        -webkit-transition: -webkit-transform 0.15s
+          cubic-bezier(0.215, 0.61, 0.355, 1);
+        transition: -webkit-transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+        -o-transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+        transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+
+        @media only screen and (min-width: $breakpoint-large) {
+          transform: scaleY(1);
+          // padding: 30px;
+          // margin-top: 0px;
+        }
+      }
+      & > a {
+        width: 205px;
+        padding-left: 30px;
+        padding-right: 30px;
+        padding-top: 20px;
+      }
+
+      & a:last-child {
+        padding-bottom: 20px;
+      }
+    }
+
+    @media only screen and (min-width: $breakpoint-large) {
+      transform: scaleY(0);
+      position: absolute;
+      top: 100%;
+      //max-height: 0px;
+      border-radius: 0 0 10px 10px;
+      left: -30px;
+      // padding: 30px;
+      background-color: grey;
+      box-shadow: 0 1px 3px rgba(77, 71, 81, 0.2),
+        inset 0 3px 5px -4px rgba(0, 0, 0, 0.4);
+      margin-top: 0px;
+      overflow: hidden;
+
+      -webkit-transition: -webkit-transform 0.15s
+        cubic-bezier(0.215, 0.61, 0.355, 1);
+      transition: -webkit-transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+      -o-transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+      transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+      transform-origin: center top;
+    }
 
     &--enabled {
-      max-height: 500px;
-      margin-top: 25px;
-      overflow: visible;
-      -webkit-transition: all 0.2s linear, padding 0.2s linear;
-      -o-transition: all 0.2s linear, padding 0.2s linear;
-      transition: all 0.2s linear, padding 0.2s linear;
+      transform: scaleY(1);
+      // margin-top: 25px;
+      // overflow: visible;
+      transform-origin: center top;
+      -webkit-transition: -webkit-transform 0.15s
+        cubic-bezier(0.215, 0.61, 0.355, 1);
+      transition: -webkit-transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+      -o-transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+      transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
+      //    max-height: 500px;
+
+      @media only screen and (min-width: $breakpoint-large) {
+        //     max-height: 500px;
+        margin-top: 25px;
+        // padding: 30px;
+        margin-top: 0px;
+      }
+    }
+
+    &--disabled {
+      @media only screen and (min-width: $breakpoint-large) {
+        // max-height: 0px;
+        -webkit-transition: all 0.2s linear, padding 0.2s linear;
+        -o-transition: all 0.2s linear, padding 0.2s linear;
+        transition: all 0.2s linear, padding 0.2s linear;
+      }
     }
   }
 }

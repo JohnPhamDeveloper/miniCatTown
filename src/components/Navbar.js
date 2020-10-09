@@ -10,7 +10,7 @@ const Navbar = ({ toggleHamburger, setToggleHamburger }) => {
       <nav className="navbar">
         {/* LARGE SCREEN NAV */}
         {isBigScreen ? (
-          <NavDropdown/>
+          <NavDropdown isBigScreen={isBigScreen} />
         ) : (
           // Hamburger For small screens
           <button
