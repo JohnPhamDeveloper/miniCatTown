@@ -5,6 +5,7 @@ import {
   clearAllBodyScrollLocks,
 } from 'body-scroll-lock'
 import { Link } from 'gatsby'
+import ExpandableButton from './ExpandableButton'
 
 /* Dropdown Nav Menu */
 
@@ -27,6 +28,11 @@ const NavDropdown = ({ isEnabled }) => {
     }
   }, [isEnabled])
 
+  // Put into own component
+  // const toggleButtonExpansion = () => {
+
+  // }
+
   return (
     <div
       className={`nav-dropdown ${isEnabled ? 'nav-dropdown--active' : ''}`}
@@ -36,16 +42,19 @@ const NavDropdown = ({ isEnabled }) => {
         {/* <li style={{ ['--animation-order']: 1 }}>
           <Link to="/blog">Home</Link>
         </li> */}
-        <li style={{ ['--animation-order']: 2 }}>
-          <Link to="/blog">About Us</Link>
+        <li
+          className="nav-dropdown__item nav-dropdown__item--1"
+          style={{ ['--animation-order']: 1 }}
+        >
+          <ExpandableButton />
         </li>
-        <li style={{ ['--animation-order']: 3 }}>
+        <li style={{ ['--animation-order']: 2 }}>
           <Link to="/blog">Adoption</Link>
         </li>
-        <li style={{ ['--animation-order']: 4 }}>
+        <li style={{ ['--animation-order']: 3 }}>
           <Link to="/blog">Donate</Link>
         </li>
-        <li style={{ ['--animation-order']: 5 }}>
+        <li style={{ ['--animation-order']: 4 }}>
           <Link to="/blog">Visit Us</Link>
         </li>
         {/* <li style={{ ['--animation-order']: 6 }}>

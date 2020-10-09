@@ -1,0 +1,31 @@
+.btn__expansion {
+  color: #ededed;
+  display: block;
+  font-size: 2.9rem;
+  background-color: transparent;
+  border: none;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+  width: 500px;
+  height: 100px;
+  margin-left: 0px;
+
+  &__item {
+    margin-top: 0px;
+    max-height: 0px;
+    overflow: hidden;
+    -webkit-transition: all 0.2s linear, padding 0.2s linear;
+    -o-transition: all 0.2s linear, padding 0.2s linear;
+    transition: all 0.2s linear, padding 0.2s linear;
+
+    &--enabled {
+      max-height: 500px;
+      margin-top: 25px;
+      overflow: visible;
+      -webkit-transition: all 0.2s linear, padding 0.2s linear;
+      -o-transition: all 0.2s linear, padding 0.2s linear;
+      transition: all 0.2s linear, padding 0.2s linear;
+    }
+  }
+}
