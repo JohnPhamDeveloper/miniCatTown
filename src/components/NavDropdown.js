@@ -33,9 +33,9 @@ const NavDropdown = ({ isEnabled }) => {
       ref={parentRef}
     >
       <ul className="nav-dropdown__list">
-        <li style={{ ['--animation-order']: 1 }}>
+        {/* <li style={{ ['--animation-order']: 1 }}>
           <Link to="/blog">Home</Link>
-        </li>
+        </li> */}
         <li style={{ ['--animation-order']: 2 }}>
           <Link to="/blog">About Us</Link>
         </li>
@@ -48,15 +48,15 @@ const NavDropdown = ({ isEnabled }) => {
         <li style={{ ['--animation-order']: 5 }}>
           <Link to="/blog">Visit Us</Link>
         </li>
-        <li style={{ ['--animation-order']: 6 }}>
+        {/* <li style={{ ['--animation-order']: 6 }}>
           <Link to="/blog">Our Team</Link>
         </li>
         <li style={{ ['--animation-order']: 7 }}>
           <Link to="/blog">Our Community</Link>
-        </li>
-        <li style={{ ['--animation-order']: 8 }}>
+        </li> */}
+        {/* <li style={{ ['--animation-order']: 8 }}>
           <Link to="/blog">Blog</Link>
-        </li>
+        </li> */}
       </ul>
     </div>
   )
