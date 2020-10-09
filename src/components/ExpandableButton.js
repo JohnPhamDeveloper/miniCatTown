@@ -30,7 +30,7 @@ const ExpandableButton = ({ isBigScreen }) => {
           </button>
           <div className={`btn__expansion__item ${getToggledItemName()}`}>
             <Link to="/blog">Our Background</Link>
-            <Link to="/blog">Our team</Link>
+            <Link to="/blog">Our Team</Link>
             <Link to="/blog">Our Community</Link>
           </div>
         </>
