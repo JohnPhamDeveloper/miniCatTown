@@ -1,21 +1,50 @@
 .cta-multiple {
   display: flex;
   flex-direction: column;
-  background-color: black;
+  background-color: white;
   align-items: center;
-  width: 300px;
-  margin-top: 80px;
+  // justify-content: center;
+  width: 387px;
+  //height: 470px;
+  margin-top: 150px;
+  padding: 30px;
+  border-radius: 30px;
+  -webkit-box-shadow: 10px 9px 26px -4px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 10px 9px 26px -4px rgba(0, 0, 0, 0.3);
+  box-shadow: 10px 9px 26px -4px rgba(0, 0, 0, 0.3);
+  position: relative;
 
-  &__title,
-  &__description {
-    text-shadow: 0 1px 5px #4d4751, 0 0 2px #4d4751, 0 0 1px #4d4751;
-    color: white;
+  &__image {
+    position: absolute;
+    top: -9%;
+    left: 50%;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    z-index: 3;
+    background-color: black;
+    border: 5px solid $grey;
+    transform: translate(-50%, -50%);
+  }
+
+  &__title {
+    //text-shadow: 0 1px 5px #4d4751, 0 0 2px #4d4751, 0 0 1px #4d4751;
+    // color: $grey;
     padding: 0% 10%;
     text-align: center;
   }
 
+  &__description {
+    text-align: center;
+    padding: 0% 5%;
+    color: $grey-dark;
+  }
+
   & a.button {
     width: 80%;
+    margin-top: 15px;
+    color: $grey-dark;
+    border-color: $grey-dark;
 
     &:hover {
       width: 85%;

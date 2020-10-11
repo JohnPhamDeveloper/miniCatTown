@@ -3,6 +3,10 @@ import React from 'react'
 const CTAMultiple = () => {
   return (
     <div className="cta-multiple">
+      {/* Background image */}
+      <div className="cta-multiple__image">
+        {/* <Img className="cta-multiple__image-fluid" fluid={image} /> */}
+      </div>
       <h2 className="cta-multiple__title">Adopt a kitten</h2>
       <p className="cta-multiple__description">
         By adopting a kitten from our rescue, you enable us to save more

@@ -112,9 +112,10 @@
       transition: transform 0.15s cubic-bezier(0.215, 0.61, 0.355, 1);
       //    max-height: 500px;
 
+      //
       @media only screen and (min-width: $breakpoint-large) {
         //     max-height: 500px;
-        margin-top: 25px;
+        //  margin-top: 25px;
         // padding: 30px;
         margin-top: 0px;
       }
