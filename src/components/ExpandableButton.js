@@ -16,31 +16,13 @@ const ExpandableButton = ({ isBigScreen }) => {
   }
 
   const renderBasedOnScreen = () => {
-    if (isBigScreen) {
-      return (
-        <>
-          <button
-            type="button"
-            onMouseEnter={() => toggleExpanded(true)}
-            onMouseLeave={() => toggleExpanded(false)}
-            onClick={() => toggleExpanded(!isExpanded)}
-            className={`btn__expansion`}
-          >
-            About Us
-          </button>
-          <div className={`btn__expansion__item ${getToggledItemName()}`}>
-            <Link to="/blog">Our Background</Link>
-            <Link to="/blog">Our Team</Link>
-            <Link to="/blog">Our Community</Link>
-          </div>
-        </>
-      )
-    }
-
+    // if (isBigScreen) {
     return (
       <>
         <button
           type="button"
+          onMouseEnter={() => toggleExpanded(true)}
+          onMouseLeave={() => toggleExpanded(false)}
           onClick={() => toggleExpanded(!isExpanded)}
           className={`btn__expansion`}
         >
@@ -48,11 +30,29 @@ const ExpandableButton = ({ isBigScreen }) => {
         </button>
         <div className={`btn__expansion__item ${getToggledItemName()}`}>
           <Link to="/blog">Our Background</Link>
-          <Link to="/blog">Our team</Link>
+          <Link to="/blog">Our Team</Link>
           <Link to="/blog">Our Community</Link>
         </div>
       </>
     )
+    //  }
+
+    // return (
+    //   <>
+    //     <button
+    //       type="button"
+    //       onClick={() => toggleExpanded(!isExpanded)}
+    //       className={`btn__expansion`}
+    //     >
+    //       About Us
+    //     </button>
+    //     <div className={`btn__expansion__item ${getToggledItemName()}`}>
+    //       <Link to="/blog">Our Background</Link>
+    //       <Link to="/blog">Our team</Link>
+    //       <Link to="/blog">Our Community</Link>
+    //     </div>
+    //   </>
+    // )
   }
 
   return <>{renderBasedOnScreen()}</>

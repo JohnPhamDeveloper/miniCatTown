@@ -19,13 +19,14 @@ import Headline from '../components/Headline'
 import Testimonial from '../components/Testimonial'
 import Footer from '../components/Footer'
 import NavDropdown from '../components/NavDropdown'
+import NavDropdownMobile from '../components/NavDropdownMobile'
 import CTALayout from '../components/CTALayout'
 import CTAMultiple from '../components/CTAMultiple'
 import CTAMultipleLayout from '../components/CTAMultipleLayout'
 
 const RootIndex = ({ data }) => {
   const [toggleHamburger, setToggleHamburger] = useState(false)
-  const isBigScreen = useMediaQuery({ query: '(min-device-width: 1024px)' })
+  // const isBigScreen = useMediaQuery({ query: '(min-device-width: 1024px)' })
 
   const siteTitle = data.site.siteMetadata.title
   const headline = data.allContentfulPageHeadline.edges[0].node.quote
@@ -64,7 +65,10 @@ const RootIndex = ({ data }) => {
         setToggleHamburger={setToggleHamburger}
         toggleHamburger={toggleHamburger}
       />
-      {!isBigScreen ? <NavDropdown isEnabled={toggleHamburger} /> : null}
+
+      {/* Contionally rendered only for medium sized and below devices in NavDropdown.scss */}
+      {/* IsBIgScreen is useless; need to remove */}
+      <NavDropdownMobile isBigScreen={true} isEnabled={toggleHamburger} />
 
       {/* Logo */}
       <div className="logo-merger">

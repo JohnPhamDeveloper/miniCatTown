@@ -7,7 +7,7 @@ import {
 import { Link } from 'gatsby'
 import ExpandableButton from './ExpandableButton'
 
-const NavDropdown = ({ isEnabled, isBigScreen }) => {
+const NavDropdown = ({ isEnabled }) => {
   const parentRef = useRef(null)
 
   useEffect(() => {
@@ -22,13 +22,12 @@ const NavDropdown = ({ isEnabled, isBigScreen }) => {
 
   return (
     <div
-      className={`nav-dropdown ${isEnabled ? 'nav-dropdown--active' : ''}`}
+      className={`nav-dropdown-mobile ${
+        isEnabled ? 'nav-dropdown-mobile--active' : ''
+      }`}
       ref={parentRef}
     >
-      <ul className="nav-dropdown__list">
-        {/* <li style={{ ['--animation-order']: 1 }}>
-          <Link to="/blog">Home</Link>
-        </li> */}
+      <ul className="nav-dropdown-mobile__list">
         <li style={{ ['--animation-order']: 1 }}>
           <Link to="/blog">Adoption</Link>
         </li>
@@ -38,21 +37,12 @@ const NavDropdown = ({ isEnabled, isBigScreen }) => {
         <li style={{ ['--animation-order']: 3 }}>
           <Link to="/blog">Visit Us</Link>
         </li>
-        <li className="nav-dropdown__item" style={{ ['--animation-order']: 4 }}>
-          {/*  */}
-          {/* Remove isBigScreen Since gatsbyJS doesnt like it */}
-          {/*  */}
+        <li
+          className="nav-dropdown-mobile__item"
+          style={{ ['--animation-order']: 4 }}
+        >
           <ExpandableButton isBigScreen={true} />
         </li>
-        {/* <li style={{ ['--animation-order']: 6 }}>
-          <Link to="/blog">Our Team</Link>
-        </li>
-        <li style={{ ['--animation-order']: 7 }}>
-          <Link to="/blog">Our Community</Link>
-        </li> */}
-        {/* <li style={{ ['--animation-order']: 8 }}>
-          <Link to="/blog">Blog</Link>
-        </li> */}
       </ul>
     </div>
   )
