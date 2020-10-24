@@ -4,7 +4,7 @@
 https://mini-cat-town-demo.netlify.app/
 
 ## Summary Of Project
-An unfinished front page only demo for a non-profit kitten adoption center. Integrated with GatsbyJS that allows for a faster experience for the users and integrated with Contentful to allow modifiable content for the owners.
+An unfinished front page only demo for a non-profit kitten adoption center that is designed and developed by me. Integrated with GatsbyJS that allows for a faster experience for the users and integrated with Contentful to allow modifiable content for the owners.
 
 ## Skills Used
 Javascript, React, HTML, CSS, CSS Grid, Flexbox, SASS, GatsbyJS, Contentful
