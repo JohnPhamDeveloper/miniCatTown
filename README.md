@@ -1,4 +1,4 @@
-# Mini Cat Down Demo Site
+# Mini Cat Town Demo Site
 
 ## Link To Demo Site
 https://lensdemo.netlify.com/
