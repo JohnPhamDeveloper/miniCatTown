@@ -1,7 +1,7 @@
 # Mini Cat Town Demo Site
 
 ## Link To Demo Site
-https://lensdemo.netlify.com/
+https://mini-cat-town-demo.netlify.app/
 
 ## Summary Of Project
 An unfinished front page only demo for a non-profit kitten adoption center. Integrated with GatsbyJS that allows for a faster experience for the users and integrated with Contentful to allow modifiable content for the owners.
