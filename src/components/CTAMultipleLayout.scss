@@ -20,8 +20,19 @@
     justify-content: space-around;
     flex-wrap: wrap;
     padding: 0px 90px;
+
+    @media only screen and (max-width: $breakpoint-medium) {
+      padding: 0px 10px;
+    }
   }
 }
+
+/**
+*  Change padding and other stuff for media screen size on really small screens
+*
+*
+*
+* **/
 
 .border-top {
   padding-top: 160px;
